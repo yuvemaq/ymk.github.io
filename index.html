@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: http://ogp.me/ns#" class="is-chrome is-desktop" style="background: #fff;">
+<head>
+    <meta charset="utf-8">
+    <title>YQK Portfolio</title>
+    <link rel="icon" href="imag/logoicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="//db.onlinewebfonts.com/c/3f4943f4e662577a8113309f864540a4?family=ITC+Benguiat" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Lateef&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+</head>
+<body>
+    <audio id="song">
+        <source src="music/cocoon_lola_marsh_I_got_you.mp3">
+    </audio>
+<!----------------  Navigation   ------------------------------------->
+    <nav class="primary_nav">
+        <a href="index.html"></a>
+        <ul class="navigation">
+            <li><a href="index.html">Home</li>
+            <li><a href="https://github.com/yuvemaq">Github</li>
+            <li><a href="blog.html">Blog</li>
+            <li><a href="projects.html">Projects</li>
+            <li><a href="#">&#128512;</li>
+            <div class="primary_toggle">
+                <span class="togglemenu"></span>
+            </div>
+        </ul>
+    </nav>
+<!-----------------  Introduction/Content  --------------------------------->
+
+    <div class="hero" id="home">
+        <div class="hero_container">
+            <img class="resize" src="imag/face2.jpg" alt="" sizes="(max-width: 230px) 100px, 300px" class="responsive">
+    
+            <h1> Yvonne Krasnov </h1>
+            <h2> Business Intelligence Analyst </h2>
+            <h3> About Me </h3>
+            <p> Hello there! I'm Yvonne Krasnov, a Cleveland-based business analyst and life-long islander. <br>
+                    Born in Biliran, Philippines, my soul is always connected to the beach and my family. My current mission is to <br>
+                    optimize project completion, innovate, and connect stakeholders with informatics/IT. </p>
+
+        </div>
+    </div>
+
+<!----<div>
+        <section id="aboutme">
+            <h2> About Me </h2>
+            <p> Hello there! I'm Yvonne Krasnov, a Cleveland-based business analyst and life-long islander. <br>
+                    Born in Biliran, Philippines, my soul is always connected to the beach and my family. My current mission is to optimize project completion, <br>
+                    innovate, and connect stakeholders with informatics/IT. </p>
+        </section>
+    </div>-->   
+<!-----------------  Send Message --------------------------------->
+    <div class="email-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2> Contact Me </h2>
+            </div>
+            <input type="hidden" name="access_key" value="675986a5-9c83-4227-9cbf-33bc5378344c">
+            <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+            <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="contact-right">
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

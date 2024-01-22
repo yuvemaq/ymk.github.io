@@ -1,0 +1,839 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    max-width: 1920px;
+    margin: 0; /* Remove default margin to avoid unwanted spacing */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    position: relative;
+    padding: 0;
+    border: 0;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero {
+    margin-top: 15px;
+    padding-left: 40px;
+    top: 20%;
+    justify-content:center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.hero_container {
+    margin-top: 30px;
+    padding-left: 40px;
+    display: inline-block;
+    justify-content:center;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 25px;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    color: rgb(255, 255, 255);
+}
+
+.hero_container h3 {
+    font-size: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hero_container p {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 12px;
+    left: 32%;
+    color: #e4e1e1;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ------------------IMAGE SECTION------------------ */
+.resize {
+    width: 240px;
+    height: 242px;
+    padding: 30px;
+    border-radius: 100%;
+}
+
+/* ------------------NAVIGATION--------------------- */
+.navigation {
+    position: absolute;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 15px 8px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.navigation .togglemenu {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 50%;
+    transition-delay: 0.5s;
+    background: #fff;
+}
+
+.navigation.active {
+    width: 600px;
+}
+
+.navigation.active .togglemenu {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: translateY(60px);
+    background: #ff4181;
+}
+
+.navigation .togglemenu::before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background: #333;
+    transform: translateY(-5px);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.navigation .togglemenu::after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background: #333;
+    transform: translateY(5px);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.navigation.active .togglemenu::before {
+    transition-delay: 0s;
+    background: #fff;
+    transform: translateY(0px) rotate(45deg) scale(0.6);
+}
+
+.navigation.active .togglemenu::after {
+    transition-delay: 0s;
+    background: #fff;
+    transform: translateY(0px) rotate(315deg) scale(0.6);
+}
+
+.navigation li {
+    list-style: none;
+    transition: 0.5s;
+    transform: scale(0);
+}
+
+.navigation.active li {
+    transition-delay: 0.75s;
+    display: flex;
+    transform: scale(1);
+}
+
+.navigation.active li a{
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-radius: 20px;
+    font-weight: 300;
+    padding: 5px 15px;
+    transition: 0.5s;
+}
+
+.navigation li a:hover{
+    background-color: #ff4181;
+    color: #fff;
+
+}
+
+/* -------------ABOUT ME BRIEF------------- */
+/*#aboutme {
+    position: absolute;
+    justify-content: flex-end;
+    margin: 0 auto;
+    width: 100%;
+    left: 32%;
+    top: 35%;
+    margin-top: 100px;
+    padding: 20px;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    /*justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 auto; 
+} 
+
+
+#aboutme h2 {
+    justify-content: flex-end;
+    align-items: center;
+    vertical-align: middle;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+#aboutme p {
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    color: #e4e1e1;
+    line-height: 30px;
+}
+/*
+p {
+    margin: 0 0 30px 0;
+    justify-content: center;
+    align-items: center;
+    vertical-align: baseline;
+    text-align:left;   
+}
+
+/* ------------- SEND EMAIL BOX -----------------*/
+.email-container {
+    font-family: 'Outfit';
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 10px;
+    /*left: -13%;
+    top: 97%;
+    /*left: 30%;
+    top: 10%;
+    height: 80px; */
+    padding-bottom: 40px;
+    vertical-align: middle;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.contact-left-title h2 {
+    font-weight: 200;
+    border-radius: 4px;
+    background-color: #2b3142; 
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.contact-inputs {
+    width: 250px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    font-weight: 350px;
+    border-radius: 45px;
+}
+
+.contact-left textarea {
+    height: 50px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.contact-left button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 200;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #2b3142; 
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.contact-left button:hover{
+    background-color: #ff4181;
+    color: #fff;
+    transition: all 0.5s ease;
+    box-shadow: 0 12px 16px 0 rgba(9, 8, 14, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+@media (max-width:800px) {
+    .contact-inputs {
+        width: 80vw;
+    }
+    .contact-right{
+        display: none;
+    }
+}
+/* -------------BLOG-----------------*/
+.blogbody {
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+    background: conic-gradient(from 0deg at 50% 50%, #1f92fd, #56faa8);
+    animation: 60s run infinite linear;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes run {
+    0%
+    {
+        background: conic-gradient(from 0deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    1%
+    {
+        background: conic-gradient(from 4deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    2%
+    {
+        background: conic-gradient(from 8deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    3%
+    {
+        background: conic-gradient(from 11deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    4%
+    {
+        background: conic-gradient(from 15deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    5%
+    {
+        background: conic-gradient(from 19deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    6%
+    {
+        background: conic-gradient(from 22deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    7%
+    {
+        background: conic-gradient(from 26deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    8%
+    {
+        background: conic-gradient(from 29deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    9%
+    {
+        background: conic-gradient(from 33deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    10%
+    {
+        background: conic-gradient(from 37deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    11%
+    {
+        background: conic-gradient(from 40deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    12%
+    {
+        background: conic-gradient(from 44deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    13%
+    {
+        background: conic-gradient(from 47deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    14%
+    {
+        background: conic-gradient(from 51deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    15%
+    {
+        background: conic-gradient(from 55deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    16%
+    {
+        background: conic-gradient(from 58deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    17%
+    {
+        background: conic-gradient(from 62deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    18%
+    {
+        background: conic-gradient(from 65deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    19%
+    {
+        background: conic-gradient(from 69deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    20%
+    {
+        background: conic-gradient(from 73deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    21%
+    {
+        background: conic-gradient(from 76deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    22%
+    {
+        background: conic-gradient(from 80deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    23%
+    {
+        background: conic-gradient(from 84deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    24%
+    {
+        background: conic-gradient(from 87deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    25%
+    {
+        background: conic-gradient(from 91deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    26%
+    {
+        background: conic-gradient(from 94deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    27%
+    {
+        background: conic-gradient(from 98deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    28%
+    {
+        background: conic-gradient(from 102deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    29%
+    {
+        background: conic-gradient(from 105deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    30%
+    {
+        background: conic-gradient(from 109deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    31%
+    {
+        background: conic-gradient(from 112deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    32%
+    {
+        background: conic-gradient(from 116deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    33%
+    {
+        background: conic-gradient(from 120deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    34%
+    {
+        background: conic-gradient(from 123deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    35%
+    {
+        background: conic-gradient(from 127deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    36%
+    {
+        background: conic-gradient(from 130deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    37%
+    {
+        background: conic-gradient(from 134deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    38%
+    {
+        background: conic-gradient(from 138deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    39%
+    {
+        background: conic-gradient(from 141deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    40%
+    {
+        background: conic-gradient(from 145deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    41%
+    {
+        background: conic-gradient(from 151deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    42%
+    {
+        background: conic-gradient(from 155deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    43%
+    {
+        background: conic-gradient(from 158deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    44%
+    {
+        background: conic-gradient(from 162deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    45%
+    {
+        background: conic-gradient(from 166deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    46%
+    {
+        background: conic-gradient(from 169deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    47%
+    {
+        background: conic-gradient(from 173deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    48%
+    {
+        background: conic-gradient(from 176deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    49%
+    {
+        background: conic-gradient(from 180deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    50%
+    {
+        background: conic-gradient(from 184deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    51%
+    {
+        background: conic-gradient(from 187deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    52%
+    {
+        background: conic-gradient(from 191deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    53%
+    {
+        background: conic-gradient(from 194deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    54%
+    {
+        background: conic-gradient(from 198deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    55%
+    {
+        background: conic-gradient(from 202deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    56%
+    {
+        background: conic-gradient(from 205deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    57%
+    {
+        background: conic-gradient(from 209deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    58%
+    {
+        background: conic-gradient(from 212deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    59%
+    {
+        background: conic-gradient(from 216deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    60%
+    {
+        background: conic-gradient(from 220deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    61%
+    {
+        background: conic-gradient(from 223deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    62%
+    {
+        background: conic-gradient(from 224deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    63%
+    {
+        background: conic-gradient(from 228deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    64%
+    {
+        background: conic-gradient(from 232deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    65%
+    {
+        background: conic-gradient(from 235deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    66%
+    {
+        background: conic-gradient(from 239deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    67%
+    {
+        background: conic-gradient(from 243deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    68%
+    {
+        background: conic-gradient(from 248deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    69%
+    {
+        background: conic-gradient(from 252deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    70%
+    {
+        background: conic-gradient(from 256deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    71%
+    {
+        background: conic-gradient(from 259deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    72%
+    {
+        background: conic-gradient(from 263deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    73%
+    {
+        background: conic-gradient(from 267deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    74%
+    {
+        background: conic-gradient(from 270deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    75%
+    {
+        background: conic-gradient(from 274deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    76%
+    {
+        background: conic-gradient(from 277deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    77%
+    {
+        background: conic-gradient(from 281deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    78%
+    {
+        background: conic-gradient(from 285deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    79%
+    {
+        background: conic-gradient(from 288deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    80%
+    {
+        background: conic-gradient(from 292deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    81%
+    {
+        background: conic-gradient(from 296deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    82%
+    {
+        background: conic-gradient(from 297deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    83%
+    {
+        background: conic-gradient(from 300deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    84%
+    {
+        background: conic-gradient(from 304deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    85%
+    {
+        background: conic-gradient(from 307deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    86%
+    {
+        background: conic-gradient(from 311deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    87%
+    {
+        background: conic-gradient(from 315deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    88%
+    {
+        background: conic-gradient(from 318deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    89%
+    {
+        background: conic-gradient(from 322deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    90%
+    {
+        background: conic-gradient(from 325deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    91%
+    {
+        background: conic-gradient(from 329deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    92%
+    {
+        background: conic-gradient(from 333deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    93%
+    {
+        background: conic-gradient(from 336deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    94%
+    {
+        background: conic-gradient(from 340deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    95%
+    {
+        background: conic-gradient(from 343deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    96%
+    {
+        background: conic-gradient(from 347deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    97%
+    {
+        background: conic-gradient(from 351deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    98%
+    {
+        background: conic-gradient(from 354deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    99%
+    {
+        background: conic-gradient(from 358deg at 50% 50%, #1f92fd, #56faa8);
+    }
+    100%
+    {
+        background: conic-gradient(from 0deg at 50% 50%, #1f92fd, #56faa8);
+    }
+
+}
+.timeline {
+    position:absolute;
+    /* max-width: 1200px; */
+    left: 45%;
+    justify-content:flex-end;
+    top: 2%;
+    padding: 10px;
+    /*display: block; */
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+
+.container-timeline {
+    padding: 12px 18px;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+.container:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.container:nth-child(2) {
+    animation-delay: 1;
+}
+.container:nth-child(3) {
+    animation-delay: 2s;
+}
+.container:nth-child(4) {
+    animation-delay: 3s;
+}
+.container:nth-child(5) {
+    animation-delay: 4s;
+}
+
+.text-box {
+    padding: 12px 20px;
+    background: #fff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.left-container {
+    left: 0;
+}
+
+.right-container {
+    left: 50%;
+}
+
+.container-timeline img {
+    position: absolute;
+    width: 35px;
+    right: -0.20px;
+    border-radius: 50%;
+    top: 32px;
+    z-index: 5;
+}
+
+.right-container img {
+    left: -0.20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    left: 51.3%;
+    top: 0%;
+    /* z-index: -1; */
+    animation: moveline 6s linear forwards;
+}
+@keyframes moveline {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+.text-box h2 {
+    font-weight: 400;
+    font-weight: bold;
+}
+
+.text-box small {
+    display: inline-block;
+    font-weight: bold;
+
+}
+
+/* ----------------- PROJECTS --------------------- */

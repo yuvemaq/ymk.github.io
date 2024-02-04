@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
     max-width: 1920px;
     margin: 0; /* Remove default margin to avoid unwanted spacing */
-    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    overflow: auto; 
     position: relative;
     padding: 0;
     border: 0;
@@ -70,6 +70,7 @@ body {
     margin-top: 12px;
     left: 32%;
     color: #e4e1e1;
+    /* text-align: left; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -79,6 +80,42 @@ body {
     height: 242px;
     padding: 30px;
     border-radius: 100%;
+}
+
+/* Media query for iOS devices */
+@media screen and (max-width: 767px) {
+    .hero,
+    .hero_container {
+        padding-left: 10px; /* Adjust padding for smaller screens */
+        padding-right: 10px;
+        text-align: left; /* Adjust text alignment for smaller screens */
+        left: 0; /* Reset left positioning */
+    }
+
+    .hero_container h1 {
+        font-size: 24px;
+    }
+
+    .hero_container h2 {
+        font-size: 18px;
+    }
+
+    .hero_container h3 {
+        font-size: 14px;
+    }
+
+    .hero_container p {
+        left: auto; /* Reset left positioning for paragraphs */
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .resize {
+        width: 50%; /* Set a percentage for the desired size */
+        height: auto; /* Maintain aspect ratio */
+        padding: 20px; /* Adjust padding for smaller screens */
+        margin-top: 80px;
+    }
 }
 
 /* ------------------NAVIGATION--------------------- */
@@ -189,6 +226,31 @@ body {
 
 }
 
+/* Media query for iOS devices */
+@media screen and (max-width: 767px) {
+    .navigation {
+        flex-direction: column; /* Change to column layout for smaller screens */
+        width: 100%; /* Adjust width for full width */
+        height: auto; /* Adjust height to fit content */
+    }
+
+    .navigation.active {
+        width: 100%; /* Adjust width for full width when active */
+    }
+
+    .navigation.active .togglemenu {
+        transform: translateX(100%); /* Move togglemenu to the right when active */
+    }
+}
+
+/* Remaining styles unchanged */
+.navigation.active .togglemenu {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transform: translateY(60px);
+    background: #ff4181;
+}
 /* -------------ABOUT ME BRIEF------------- */
 /*#aboutme {
     position: absolute;
@@ -306,6 +368,7 @@ p {
     transition: all 0.5s ease;
     box-shadow: 0 12px 16px 0 rgba(9, 8, 14, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 @media (max-width:800px) {
     .contact-inputs {
         width: 80vw;
@@ -321,6 +384,7 @@ p {
     margin-top: 20px;
     background: conic-gradient(from 0deg at 50% 50%, #1f92fd, #56faa8);
     animation: 60s run infinite linear;
+    overflow: auto; 
 }
 
 .container {
@@ -817,6 +881,7 @@ p {
     /* z-index: -1; */
     animation: moveline 6s linear forwards;
 }
+
 @keyframes moveline {
     0% {
         height: 0;
@@ -835,5 +900,222 @@ p {
     font-weight: bold;
 
 }
+/* Media query for iOS devices */
+@media screen and (max-width: 767px) {
+    .timeline {
+        left: 0; /* Adjust positioning for smaller screens */
+        padding: 10px;
+        margin-top: 160px;
+        justify-content: center;
+    }
 
+    .container-timeline {
+        width: 100%; /* Adjust width for full width */
+    }
+
+    .text-box {
+        padding: 12px 15px; /* Adjust padding for smaller screens */
+    }
+
+    .text-box h2{
+        font-weight: 50;
+        font-size: 20px;
+    }
+
+    .text-box p{
+        font-size: 12px;
+    }
+
+    .left-container {
+        left: 0;
+    }
+    
+    .right-container {
+        left: 0;
+    }
+    .container-timeline img {
+        width: 25px; /* Adjust image width for smaller screens */
+        top: 22px; /* Adjust image top positioning for smaller screens */
+        left: 0;
+    }
+
+    .timeline::after {
+        display: none; /* Hide the moveline for smaller screens */
+    }
+}
 /* ----------------- PROJECTS --------------------- */
+.projectsbody {
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+    background-color:#2b3142;
+    overflow: auto;
+}
+
+.project-div {
+    width: 100%;
+    height: 100vh;
+    padding-left: 80px;
+    display: inline-block;
+    margin-top: 15px;
+    padding-left: 80px;
+    top: 20%;
+    justify-content:center;
+    align-items: center;
+    vertical-align: middle;
+    /*text-align: left; */
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 25px;
+    /*font-size: 20px;
+    letter-spacing: 0.03em; 
+    color: rgb(255, 255, 255); */
+}
+
+.project_container {
+    width: 100%;
+    height: 100vh;
+    padding-left: 80px;
+    display: inline-block;
+    margin-top: 80px;
+    padding-left: 40px;
+    top: 20%;
+    justify-content:center;
+    align-items: center;
+    vertical-align: middle;
+    /*text-align: left; */
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 25px;
+    /*vertical-align: middle;
+    left:32%;
+    padding: 50px;
+    margin-left: 300px; */
+}
+
+.project-box {
+    width: 100%;
+    height: 100vh;
+    padding-left: 80px;
+    display: inline-block;
+    margin-top: 80px;
+    padding-left: 40px;
+    top: 20%;
+    justify-content:center;
+    align-items: center;
+    vertical-align: middle;
+    /*text-align: left; */
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 25px;
+    /*vertical-align: middle;
+    left:32%;
+    padding: 50px;
+    margin-left: 300px; */
+}
+
+.project-box h1 {
+    font-size: 40px;
+    font-weight: 200;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.02em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.project-box h3 {
+    font-size: 28px;
+    font-weight: 150;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+}
+
+.project-box p {
+    font-size: 18px;
+    font-weight: 100;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.02em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.custom-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 200;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #2b3142; 
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.custom-button:hover{
+    background-color: #234cd5;
+    color: #fff;
+    transition: all 0.5s ease;
+    box-shadow: 0 12px 16px 0 rgba(9, 8, 14, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Add media query for screens up to 767px */
+@media screen and (max-width: 767px) {
+    .project-div,
+    .project_container,
+    .project-box {
+        padding-left: 5px; /* Adjust padding for smaller screens */
+        margin-top: 30px;
+        padding-right: 100px;
+    }
+
+    .project-box h1 {
+        font-size: 25px;
+        margin-top: 80px;
+    }
+
+    .project-box h3 {
+        font-size: 18px;
+    }
+
+    .project-box p {
+        font-size: 12px;
+    }
+    
+
+    .custom-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/*  NANI Screen  */
+@media screen and (max-width: 767px) {
+    .hero-body {
+      padding: 1.5rem; /* Adjust padding for smaller screens */
+    }
+  
+    .container.m-4 {
+      margin: 1rem; /* Adjust margin for smaller screens */
+    }
+  
+    .select {
+      width: 100%; /* Make the select element full width on smaller screens */
+    }
+  
+    .field.is-grouped {
+      display: block; /* Make the form buttons stack on smaller screens */
+      margin-top: 1rem; /* Adjust top margin for smaller screens */
+    }
+  
+    .button.is-primary,
+    .button.is-danger {
+      width: 100%; /* Make the buttons full width on smaller screens */
+    }
+  }

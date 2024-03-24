@@ -5,32 +5,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <base target="_top">
-
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-  // Load the Visualization API and the corechart package.
-  google.charts.load('current', {'packages':['corechart']});
-  // Set a callback to run when the Google Visualization API is loaded.
-  google.charts.setOnLoadCallback(drawChart);
-  
-    function drawChart() {
-      google.script.run.withSuccessHandler(displayChart).getChartData();
-    }
-
-    function displayChart(data) {
-      var chartData = google.visualization.arrayToDataTable(data);
-
-      // Set chart options
-      var options = {
-        title: 'Sales Data Visualization',
-        is3D: true
-        // Additional chart options
-      };
-
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
-  chart.draw(chartData, options);
   </head>
   <body>
 
@@ -164,9 +138,6 @@
         border-color: aquamarine;
       "
     ></div>
-
-    <!--Div that will hold the pie chart-->
-    <div id="line_chart" style="width: 50%; height: 400px;"></div>
 
     <script>
       document.getElementById("form").addEventListener("submit", function (e) {

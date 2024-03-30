@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="NANIDataEntryForm.html">
+        <img class="resize" src="imag/NANI.ico" alt="" class="responsive">
+        <!--<h1 class="title">NANI Baby Scheduler</h1> -->
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="index.html">Home</a>
+        <a class="navbar-item" href="https://github.com/yuvemaq">Github</a>
+        <a class="navbar-item" href="blog.html">Blog</a>
+        <a class="navbar-item" href="projects.html">Projects</a>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .tablinks {
+        background-color: #0fcc9d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .tablinks:hover {
+        background-color: #2b3142;
+    }
+
+  </style>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'HeartRate')">Heart Rate</button>
+    <button class="tablinks" onclick="openTab(event, 'RespRate')">Resp Rate</button>
+    <button class="tablinks" onclick="openTab(event, 'Weight')">Weight</button>
+    <button class="tablinks" onclick="openTab(event, 'Height')">Height</button>
+  </div>
+  
+  <div id="HeartRate" class="tabcontent">
+    <h3>Heart Rate</h3>
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGfJxrSRoRntutWy59fUaqD-3d3cCt21SwNQQ6OtKxUhifc0IlWadjQqGD66VjK5926KTI7_4C_NWw/pubchart?oid=1328201080&amp;format=interactive"></iframe>
+  </div>
+
+  <div id="RespRate" class="tabcontent">
+    <h3>Resp Rate</h3>
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGfJxrSRoRntutWy59fUaqD-3d3cCt21SwNQQ6OtKxUhifc0IlWadjQqGD66VjK5926KTI7_4C_NWw/pubchart?oid=323911652&amp;format=interactive"></iframe>  </div>  
+
+  <div id="Weight" class="tabcontent">
+    <h3>Weight</h3>
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGfJxrSRoRntutWy59fUaqD-3d3cCt21SwNQQ6OtKxUhifc0IlWadjQqGD66VjK5926KTI7_4C_NWw/pubchart?oid=1422667572&amp;format=interactive"></iframe> </div> 
+  
+<div id="Height" class="tabcontent">
+    <h3>Height</h3>
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSGfJxrSRoRntutWy59fUaqD-3d3cCt21SwNQQ6OtKxUhifc0IlWadjQqGD66VjK5926KTI7_4C_NWw/pubchart?oid=1749552407&amp;format=interactive"></iframe>
+</div>
+
+  <script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+
+</body>

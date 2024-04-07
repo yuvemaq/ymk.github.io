@@ -1,9 +1,221 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title></title>
-</head>
-<body>
-    <iframe src="https://script.google.com/macros/s/AKfycbxZ4L4c3OHHlCD7bxvK5leq5Hao8oab3oXontOUFumDy-mvawM9eWpsL5mBl0s02dIS/exec" style="border: none;" width="100%" height="1368px" scrolling="no"</iframe>
-</body>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="NANIDataEntryForm.html">
+        <img class="resize" src="imag/NANI.ico" alt="" class="responsive">
+        <!--<h1 class="title">NANI Baby Scheduler</h1> -->
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="index.html">Home</a>
+        <a class="navbar-item" href="https://github.com/yuvemaq">Github</a>
+        <a class="navbar-item" href="blog.html">Blog</a>
+        <a class="navbar-item" href="projects.html">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">NANI Baby Scheduler</h1>
+        </div>
+      </div>
+    </section>
+    <form id="form" class="container m-4 pl-4" method="POST">
+      <div class="field">
+        <label class="label">User Name</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="User Name"
+            name="User Name"
+          />
+        </div>
+      </div>
+
+      <!-- <div class="field">
+        <label class="label">Last Name</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Your Last Name"
+            name="Last Name"
+          />
+        </div>
+      </div> -->
+
+
+      <div class="field">
+        <label class="label">Current Date</label>
+        <div class="control">
+          <input
+            class="input"
+            type="date"
+            placeholder="Current Date"
+            name="Current Date"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Category</label>
+        <div class="control">
+          <div class="select">
+            <select name="Category">
+              <option value="Feed">Feed</option>
+              <option value="Diaper">Diaper</option>
+              <option value="Sleep">Sleep</option>
+              <option value="Playtime">Playtime</option>
+              <option value="Temperature">Temperature</option>
+              <option value="Resp Rate">Resp Rate</option>
+              <option value="Heart Rate">Heart Rate</option>
+              <option value="Weight">Weight</option>
+              <option value="Height">Height</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="field">
+        <label class="label">Recording Value?</label>
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" name="Recording Value?" value="yes" /> Yes
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Value</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Value"
+            name="Value"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit" id="submit-button">
+            Submit
+          </button>
+        </div>
+        <div class="control">
+          <button class="button is-danger">Cancel</button>
+        </div>
+      </div>
+    </form>
+    <div
+      id="message"
+      style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "
+    ></div>
+
+    <style>
+      .chart-button {
+          background-color: #2b3142;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      .chart-button:hover {
+          background-color: #ff4181;
+      }
+</style>
+    <a href="charts.html"><button class="chart-button">View Results</button></a>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzWnc9qvV4tpyDTZ2Q1urA9mGXXcCXJFBestTH5XAR-gKj5sY_NCbKly8q5c3eXCObo/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            // Check if the request was successful
+            if (response) {
+              return response; // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 2600);
+          })
+          .catch(function (error) {
+            // Handle errors, you can display an error message here
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+    </script>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+  </body>
+</html>
